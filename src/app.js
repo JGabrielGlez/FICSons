@@ -1,33 +1,28 @@
-// src/app.js
-// Configuración de Express - middlewares y registro de rutas
-
-const express = require("express");
+import express from "express";
+import morgan from "morgan";
+import cors from "cors";
+import config from "./config/config";
+import { supabase } from "./config/database.config.js";
+// Se declara la variable app igualándola a express
 const app = express();
 
-// Middlewares
+// settings
+
+app.set("port", config.PORT);
+
+// Mddlewares generales
+app.use(cors());
+app.use(morgan("dev"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
-// Importar routers
-const mongoRouter = require("./institutos/mongo/instituto.routes");
-const supabaseRouter = require("./institutos/supabase/instituto.routes");
-const neo4jRouter = require("./institutos/neo4j/instituto.routes");
-const azureRouter = require("./institutos/azure/instituto.routes");
+// Rutas
 
-// Registrar rutas
-app.use("/api/mongo", mongoRouter);
-app.use("/api/supabase", supabaseRouter);
-app.use("/api/neo4j", neo4jRouter);
-app.use("/api/azure", azureRouter);
-
-// Ruta de prueba
-app.get("/", (req, res) => {
-  res.json({ mensaje: "AppRESTeSecurity - API RESTful con Microservicios" });
+const api = config.API_URL;
+app.get(`${api}`, (req, res) => {
+  res.send(
+    `<h1>RESTful running in root</h1> <p> Supabase: <b>${api}/api-docs</b> for more information.</p>`,
+  );
 });
 
-// Manejo de errores 404
-app.use((req, res) => {
-  res.status(404).json({ error: "Ruta no encontrada" });
-});
-
-module.exports = app;
+export default app;

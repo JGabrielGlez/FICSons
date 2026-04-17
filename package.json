@@ -4,8 +4,10 @@
   "description": "RESTful API con Arquitectura de Microservicios en Express",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "babel-node": "babel-node",
+    "dev": "nodemon --exec npm run babel-node -- src/index.js",
+    "build": "babel src --out-dir dist",
+    "start": "node dist/index.js"
   },
   "keywords": [
     "express",
@@ -18,14 +20,31 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2",
-    "dotenv": "^16.0.3",
-    "mongoose": "^7.0.0",
-    "@supabase/supabase-js": "^2.21.0",
-    "neo4j-driver": "^5.5.0",
-    "@azure/cosmos": "^3.18.0"
+    "@babel/runtime": "^7.29.2",
+    "@hapi/boom": "^10.0.1",
+    "@supabase/supabase-js": "^2.103.3",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
+    "morgan": "^1.10.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
-  }
+    "@babel/cli": "^7.28.6",
+    "@babel/core": "^7.29.0",
+    "@babel/node": "^7.29.0",
+    "@babel/plugin-transform-runtime": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
+    "nodemon": "^2.0.22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JGabrielGlez/FICSons.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JGabrielGlez/FICSons/issues"
+  },
+  "homepage": "https://github.com/JGabrielGlez/FICSons#readme"
 }
