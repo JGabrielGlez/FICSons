@@ -3,6 +3,7 @@ import morgan from "morgan";
 import cors from "cors";
 import config from "./config/config";
 import { supabase } from "./config/database.config.js";
+import routeAPI from "./api/supabase/routes/index.js";
 // Se declara la variable app igualándola a express
 const app = express();
 
@@ -25,4 +26,5 @@ app.get(`${api}`, (req, res) => {
   );
 });
 
+routeAPI(app);
 export default app;

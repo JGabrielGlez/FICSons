@@ -15,6 +15,7 @@ export const getCatIntitutosList = async () => {
   return data;
 };
 
+// FIC: GET INSTITUTE BY ID
 // Busca un instituto por su ID, usando el tipo de clave indicado (OK o BK)
 export const getInstitutoItem = async (id, keytype) => {
   try {
