@@ -1,0 +1,10 @@
+@api = http://localhost:3020/api/supabase/institutos
+#@api = http://187.229.22.99:8010/api/v1/prod-serv
+### GET
+GET {{api}}
+### GET ITEM
+GET {{api}}/1
+### GET ITEM
+GET {{api}}/INST-004-UNAM?keyType=OK
+### GET ITEM
+GET {{api}}/BK-UNAM-04?keyType=BK

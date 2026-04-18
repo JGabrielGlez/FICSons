@@ -1,7 +1,7 @@
 // Librería para manejo de errores HTTP estructurados
 import boom from "@hapi/boom";
 // Cliente de Supabase inicializado con las credenciales del proyecto
-import { supabase } from "../../config/database.config.js";
+import { supabase } from "../../../config/database.config.js";
 
 // Consulta todos los registros de la tabla cat_institutos
 export const getCatIntitutosList = async () => {
@@ -19,23 +19,28 @@ export const getCatIntitutosList = async () => {
 // Busca un instituto por su ID, usando el tipo de clave indicado (OK o BK)
 export const getInstitutoItem = async (id, keytype) => {
   try {
-    // Determina el nombre de la columna según el tipo de clave:
-    // "OK" = clave primaria (IdInstitutoOK), cualquier otro valor = clave de negocio (IdInstitutoBK)
-    const column = keytype === "OK" ? "IdInstitutoOK" : "IdInstitutoBK";
+    let query = supabase.from("cat_institutos").select("*");
 
-    // Ejecuta SELECT * FROM cat_institutos WHERE {column} = {id} LIMIT 1
-    const { data, error } = await supabase
-      .from("cat_institutos")
-      .select("*")
-      .eq(column, id)
-      .single(); // Retorna un objeto directo, no un arreglo
+    // 1. Decidimos qué columna filtrar
+    if (!keytype) {
+      query = query.eq("id", id);
+    } else {
+      const column = keytype === "OK" ? "id_instituto_ok" : "id_instituto_bk";
+      query = query.eq(column, id);
+    }
 
-    // Si no encuentra el registro o hay error de BD, lo lanza para el catch
-    if (error) throw error;
-    // Retorna el objeto del instituto encontrado
+    // 2. Ejecutamos la consulta (una sola vez para evitar repetir código)
+    const { data, error } = await query.single();
+
+    // 3. Manejo de errores
+    if (error) {
+      // Si el error es porque no encontró nada, devolvemos null para que el controlador lance el 404
+      if (error.code === "PGRST116") return null;
+      throw error;
+    }
+
     return data;
   } catch (error) {
-    // Envuelve cualquier error en un error HTTP 500
-    throw boom.internal(error);
+    throw boom.internal(error.message);
   }
 };

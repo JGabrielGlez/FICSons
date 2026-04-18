@@ -5,7 +5,7 @@ import boom from "@hapi/boom";
 export const getInstitutosList = async (req, res, next) => {
   try {
     // Manda a llamar al servicio para traer todos los institutos
-    const institutosList = InstitutosServices.getCatIntitutosList();
+    const institutosList = await InstitutosServices.getCatIntitutosList();
     if (!institutosList) {
       throw boom.notFound("No hay institutos registrados");
     } else if (institutosList) {
@@ -19,7 +19,16 @@ export const getInstitutosList = async (req, res, next) => {
 export const getInstitutoItem = async (req, res, next) => {
   try {
     // Mandar a llamar al servicioi para traer todos los institutos
-    const institutoItem = InsitutosServices.getInstitutoItem();
+    const { id } = req.params;
+    const { keyType } = req.query; // Esto captura el ?keyType=OK
+
+    if(!keyType) {
+      await InstitutosServices.getInstitutoItem(id);
+    }
+    const institutoItem = await InstitutosServices.getInstitutoItem(
+      id,
+      keyType,
+    );
     if (!institutoItem) {
       throw boom.notFound("Instituto no encontrado");
     } else if (institutoItem) {
