@@ -7,6 +7,7 @@ import * as institutosController from '../controllers/instituto.controller';
 // Creamos el router
 const router = Router();
 // Creamos las rutas, cualquier cosa que llegue a la ruta (primer parámetro) será enviado a su respectivo controlador (segundo parámetro)
-router.get('/',institutosController.getInstitutosList);
-router.get('/:id', institutosController.getInstitutoItem); 
+router.get('/', institutosController.getInstitutosList);
+router.get('/:id', institutosController.getInstitutoItem);
+router.post('/', institutosController.addInstitutoItem);
 export default router;

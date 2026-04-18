@@ -16,6 +16,16 @@ export const getInstitutosList = async (req, res, next) => {
   }
 };
 
+export const addInstitutoItem = async (req, res, next) => {
+  try {
+    const data = req.body;
+    const newInstituto = await InstitutosServices.addInstitutoItem(data);
+    res.status(201).json(newInstituto);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const getInstitutoItem = async (req, res, next) => {
   try {
     // Mandar a llamar al servicioi para traer todos los institutos

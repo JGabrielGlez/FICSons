@@ -15,7 +15,22 @@ export const getCatIntitutosList = async () => {
   return data;
 };
 
-// FIC: GET INSTITUTE BY ID
+// Agrega un nuevo instituto a la tabla cat_institutos
+export const addInstitutoItem = async (data) => {
+  try {
+    const { data: newInstituto, error } = await supabase
+      .from("cat_institutos")
+      .insert(data)
+      .select()
+      .single();
+
+    if (error) throw error;
+    return newInstituto;
+  } catch (error) {
+    throw boom.internal(error);
+  }
+};
+
 // Busca un instituto por su ID, usando el tipo de clave indicado (OK o BK)
 export const getInstitutoItem = async (id, keytype) => {
   try {
