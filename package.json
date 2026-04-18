@@ -23,7 +23,7 @@
     "mongoose": "^7.0.0",
     "@supabase/supabase-js": "^2.21.0",
     "neo4j-driver": "^5.5.0",
-    "@azure/cosmos": "^3.18.0"
+    "@azure/cosmos": "latest"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
