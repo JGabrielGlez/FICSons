@@ -10,4 +10,6 @@ const router = Router();
 router.get('/', institutosController.getInstitutosList);
 router.get('/:id', institutosController.getInstitutoItem);
 router.post('/', institutosController.addInstitutoItem);
+router.put('/:id', institutosController.updateInstitutoItem);
+router.delete('/:id', institutosController.deleteInstitutoItem);
 export default router;

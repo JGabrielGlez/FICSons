@@ -31,6 +31,38 @@ export const addInstitutoItem = async (data) => {
   }
 };
 
+// Actualiza un instituto existente por su id_instituto_ok
+export const updateInstitutoItem = async (id, data) => {
+  try {
+    const { data: updatedInstituto, error } = await supabase
+      .from("cat_institutos")
+      .update(data)
+      .eq("id_instituto_ok", id)
+      .select()
+      .single();
+
+    if (error) throw error;
+    return updatedInstituto;
+  } catch (error) {
+    throw boom.internal(error);
+  }
+};
+
+// Elimina un instituto por su id_instituto_ok
+export const deleteInstitutoItem = async (id) => {
+  try {
+    const { error } = await supabase
+      .from("cat_institutos")
+      .delete()
+      .eq("id_instituto_ok", id);
+
+    if (error) throw error;
+    return true;
+  } catch (error) {
+    throw boom.internal(error);
+  }
+};
+
 // Busca un instituto por su ID, usando el tipo de clave indicado (OK o BK)
 export const getInstitutoItem = async (id, keytype) => {
   try {

@@ -26,6 +26,30 @@ export const addInstitutoItem = async (req, res, next) => {
   }
 };
 
+export const updateInstitutoItem = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const data = req.body;
+    const updatedInstituto = await InstitutosServices.updateInstitutoItem(id, data);
+    if (!updatedInstituto) {
+      throw boom.notFound("Instituto no encontrado");
+    }
+    res.status(200).json(updatedInstituto);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const deleteInstitutoItem = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    await InstitutosServices.deleteInstitutoItem(id);
+    res.status(200).json({ message: "Instituto eliminado correctamente" });
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const getInstitutoItem = async (req, res, next) => {
   try {
     // Mandar a llamar al servicioi para traer todos los institutos

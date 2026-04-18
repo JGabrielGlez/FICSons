@@ -7,4 +7,30 @@ GET {{api}}/1
 ### GET ITEM
 GET {{api}}/INST-004-UNAM?keyType=OK
 ### GET ITEM
-GET {{api}}/BK-UNAM-04?keyType=BK
+GET {{api}}/BK-TEC-07?keyType=BK
+
+### POST
+POST {{api}}
+Content-Type: application/json
+
+{
+  "id_instituto_ok": "INST-009-IPN",
+  "id_instituto_bk": "BK-IPN-05",
+  "des_instituto": "Instituto Politécnico Nacional",
+  "alias": "IPN",
+  "matriz": null,
+  "giro": null,
+  "id_instituto_sup_ok": null
+}
+
+### PUT
+PUT {{api}}/INST-005-IPN
+Content-Type: application/json
+
+{
+  "des_instituto": "Instituto Politécnico Nacional (Actualizado)",
+  "alias": "IPN-MX"
+}
+
+### DELETE
+DELETE {{api}}/INST-005-IPN
