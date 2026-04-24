@@ -1,40 +1,23 @@
-<!--
-Sync Impact Report
-Version change: 1.0 → 1.0
-Modified principles: none; structure normalized only
-Added sections: Additional Constraints; Development Workflow
-Removed sections: none
-Templates reviewed: ✅ .specify/templates/constitution-template.md (used as structural baseline)
-Templates reviewed: ✅ .specify/templates/plan-template.md (no content changes required)
-Templates reviewed: ✅ .specify/templates/spec-template.md (no content changes required)
-Templates reviewed: ✅ .specify/templates/tasks-template.md (no content changes required)
-Templates reviewed: ✅ .specify/extensions/git/commands/*.md (no outdated references found)
-Deferred items: TODO(RATIFICATION_DATE): no aparece en .drfic/diana-sdk/memory/project_constitution.md
--->
+# 🎓 CONSTITUCIÓN DEL PROYECTO
+## Plataforma LMS Escolar — Progressive Web App Asistida por Inteligencia Artificial
 
-# Plataforma LMS Escolar Constitution
+---
 
-## Core Principles
-
-### 1. Naturaleza del Documento (Autoridad Constitucional)
+## 0. Naturaleza del Documento (Autoridad Constitucional)
 
 Este documento constituye la **fuente de verdad primaria y superior** del proyecto LMS escolar.
 
-Define los **principios inmutables**, **límites**, **reglas no negociables**, **gobierno de agentes**,
-**estándares técnicos mínimos** y **criterios rectores** bajo los cuales deberán alinearse **todas las
-especificaciones, tickets, agentes, skills, decisiones técnicas y código generado**.
+Define los **principios inmutables**, **límites**, **reglas no negociables**, **gobierno de agentes**, **estándares técnicos mínimos** y **criterios rectores** bajo los cuales deberán alinearse **todas las especificaciones, tickets, agentes, skills, decisiones técnicas y código generado**.
 
-Ninguna SPEC, ticket, agente o implementación podrá **contradecir esta Constitución** sin una
-**enmienda constitucional explícita y documentada**.
+Ninguna SPEC, ticket, agente o implementación podrá **contradecir esta Constitución** sin una **enmienda constitucional explícita y documentada**.
 
-El blueprint técnico detallado (SQL, TypeScript, configuración) vive en `Investigacion.md`. Esta
-Constitución define el **por qué y los límites**; la investigación define el **cómo**.
+El blueprint técnico detallado (SQL, TypeScript, configuración) vive en `Investigacion.md`. Esta Constitución define el **por qué y los límites**; la investigación define el **cómo**.
 
-### 2. Propósito Estratégico
+---
 
-Diseñar, construir y evolucionar una **plataforma educativa web tipo LMS (Learning Management System)**
-como Progressive Web App, orientada a **instituciones escolares**, que **potencie el aprendizaje humano**
-mediante:
+## 1. Propósito Estratégico
+
+Diseñar, construir y evolucionar una **plataforma educativa web tipo LMS (Learning Management System)** como Progressive Web App, orientada a **instituciones escolares**, que **potencie el aprendizaje humano** mediante:
 
 - Gestión estructurada de cursos, módulos y lecciones
 - Integración de contenido externo (video, PDF, slides, notas web) sin costo de hosting
@@ -43,15 +26,15 @@ mediante:
 - Tutoría socrática asistida por Inteligencia Artificial (Google Gemini 2.5 Flash)
 - Rutas de aprendizaje estructuradas con prerrequisitos y progresión
 
-La plataforma **no busca reemplazar al instructor**, sino **amplificar su impacto, trazabilidad y alcance**
-  dentro de la institución.
+La plataforma **no busca reemplazar al instructor**, sino **amplificar su impacto, trazabilidad y alcance** dentro de la institución.
 
-### 3. Objetivo Constitucional
+---
+
+## 2. Objetivo Constitucional
 
 Desarrollar un **LMS escolar como PWA** que:
 
-- Organice el conocimiento en **cursos → módulos → lecciones** con jerarquía institucional (áreas,
-  departamentos, carreras, especialidades)
+- Organice el conocimiento en **cursos → módulos → lecciones** con jerarquía institucional (áreas, departamentos, carreras, especialidades)
 - Permita a los instructores **crear, publicar y gestionar** su propio contenido
 - Garantice que los alumnos **progresen de forma trazable** y con **prerequisitos respetados**
 - Proteja la **integridad de las evaluaciones** (grading siempre en el servidor, respuestas nunca al cliente)
@@ -60,12 +43,13 @@ Desarrollar un **LMS escolar como PWA** que:
 - Sea **instalable, funcione offline** en modo básico y sea responsive
 - Opere con **costo cercano a cero** para el volumen inicial de 50–100 usuarios
 
-Este objetivo es **independiente de variaciones de UI**, pero **sujeto a los estándares mínimos definidos
-en esta Constitución**.
+Este objetivo es **independiente de variaciones de UI**, pero **sujeto a los estándares mínimos definidos en esta Constitución**.
 
-### 4. Filosofía Fundamental del Sistema
+---
 
-#### 4.1 Modelo Centrado en el Aprendizaje Humano
+## 3. Filosofía Fundamental del Sistema
+
+### 3.1 Modelo Centrado en el Aprendizaje Humano
 
 El sistema adopta por definición constitucional un modelo **centrado en el humano**:
 
@@ -75,12 +59,13 @@ El sistema adopta por definición constitucional un modelo **centrado en el huma
 - ❌ No existe acceso a contenido sin cumplir los prerequisitos establecidos
 - ❌ La IA nunca reemplaza la evaluación humana ni da respuestas directas de exámenes
 
-#### 4.2 Arquitectura por Features Desacopladas (Vertical Slice)
+---
+
+### 3.2 Arquitectura por Features Desacopladas (Vertical Slice)
 
 El sistema se compone de **features independientes**, donde cada feature:
 
-- Representa un **dominio funcional** completo (auth, courses, lessons, evaluations, gamification,
-  ai-chat, moderation…)
+- Representa un **dominio funcional** completo (auth, courses, lessons, evaluations, gamification, ai-chat, moderation…)
 - Es **desacoplada funcional y técnicamente** (components, hooks, services, store, api, types propios)
 - Puede desarrollarse, probarse y desplegarse de forma **relativamente independiente**
 
@@ -98,7 +83,9 @@ Features constitucionales del sistema:
 - `profile` — perfil del usuario, avatar, estadísticas
 - `notifications` — sistema de notificaciones realtime
 
-#### 4.3 Rol de la Inteligencia Artificial
+---
+
+### 3.3 Rol de la Inteligencia Artificial
 
 La IA (Google Gemini 2.5 Flash):
 
@@ -112,7 +99,9 @@ La IA (Google Gemini 2.5 Flash):
 
 El kill-switch de IA durante intentos de evaluación activos es **no negociable**.
 
-### 5. Principio de Progresión Verificada
+---
+
+## 4. Principio de Progresión Verificada
 
 Un alumno solo puede avanzar cuando:
 
@@ -121,17 +110,16 @@ Un alumno solo puede avanzar cuando:
 - La **lección es accesible** según `app.can_access_lesson()` (combina inscripción + prerequisitos)
 - En evaluaciones: el **número de intentos no excede `max_attempts`**
 
-No existen atajos. El progreso es **trazable, auditable y reconstruible** en todo momento a partir de los
-registros en `progress_tracking` y `evaluation_attempts`.
+No existen atajos. El progreso es **trazable, auditable y reconstruible** en todo momento a partir de los registros en `progress_tracking` y `evaluation_attempts`.
 
-## Additional Constraints
+---
 
-### 6. Roles de los Actores del Sistema
+## 5. Roles de los Actores del Sistema
 
 El sistema define **cinco roles jerárquicos** con responsabilidades precisas y sin solapamiento ambiguo:
 
 | Rol | Jerarquía | Responsabilidad |
-| --- | --- | --- |
+|---|---|---|
 | `super_admin` | 5 (máximo) | Configura la plataforma global: branding, planes, permisos, gestión de admins |
 | `admin` | 4 | Gestiona toda la plataforma (usuarios, contenido, configuración); puede estar scopeado a una o varias unidades organizativas (área, departamento, carrera, especialidad) |
 | `instructor` | 3 | Crea y gestiona sus propios cursos; un curso puede tener múltiples instructores (un `owner` + N `collaborator`) |
@@ -139,15 +127,16 @@ El sistema define **cinco roles jerárquicos** con responsabilidades precisas y 
 | `alumno` | 1 (mínimo) | Consume cursos, progresa, participa en evaluaciones y gamificación |
 
 **Reglas constitucionales de roles:**
-
 - Solo `super_admin` puede promover a `admin`.
 - El Edge Function `update-user-role` es el **único camino** para cambiar roles; no existe mutación directa por cliente.
 - Un usuario **no puede autoasignarse un rol superior** al propio (enforced en RLS + Edge Function).
 - La jerarquía numérica (super_admin=5, admin=4, instructor=moderador=3, alumno=1) determina todos los permisos.
 
-### 7. Alcance Constitucional de la Versión 1.0
+---
 
-#### Incluye
+## 6. Alcance Constitucional de la Versión 1.0
+
+### Incluye
 
 - Gestión completa de cursos, módulos y lecciones con contenido externo embebido
 - Cuatro tipos de contenido: `video` (YouTube/Vimeo), `pdf` (Drive/Supabase), `pptx` (Slides/OneDrive), `web_note` (Notion/URL)
@@ -162,7 +151,7 @@ El sistema define **cinco roles jerárquicos** con responsabilidades precisas y 
 - Panel de moderación con cola de flags
 - Verificación pública de certificados (`/certificates/:code`)
 
-#### Excluye (diferidos a versiones futuras)
+### Excluye (diferidos a versiones futuras)
 
 - Auto-inscripción con pago (pasarela de pagos)
 - SSO/SAML institucional (diferido a venta institucional)
@@ -172,7 +161,9 @@ El sistema define **cinco roles jerárquicos** con responsabilidades precisas y 
 - App móvil nativa (la PWA cubre el caso inicial)
 - Multi-tenant (múltiples instituciones en un deployment) (v3)
 
-### 8. Principios de Ingeniería y Calidad
+---
+
+## 7. Principios de Ingeniería y Calidad
 
 El proyecto se rige por los siguientes principios no negociables:
 
@@ -187,12 +178,14 @@ El proyecto se rige por los siguientes principios no negociables:
 - Evidencia funcional obligatoria antes de cerrar una fase
 - Seguridad estricta de credenciales y Content Security Policy en producción
 
-### 9. Metodología de Ejecución
+---
+
+## 8. Metodología de Ejecución
 
 El proyecto se rige por **10 fases de implementación secuenciales** con dependencias duras:
 
 | Fase | Nombre | Duración estimada |
-| --- | --- | --- |
+|---|---|---|
 | 0 | Setup (repo, CI, Supabase, Vercel, lint, auth shell) | 1–2 sem |
 | 1 | Auth & Users (email + Google OAuth, roles, profiles) | 1–2 sem |
 | 2 | Course & Content Core (CRUD, 4 viewers, player shell) | 3–4 sem |
@@ -205,16 +198,17 @@ El proyecto se rige por **10 fases de implementación secuenciales** con depende
 | 9 | Admin Panel (DAU, users, moderation, feature flags) | 1–2 sem |
 | 10 | QA & Launch (E2E, Lighthouse, Security Advisor, beta) | 1–2 sem |
 
-**Dependencias duras:** F2 requiere F1; F3 requiere F2; F4 requiere F3; F5 requiere F3+F4; F6 puede
-paralelizar con F4–F5; F8 paralela desde F2.
+**Dependencias duras:** F2 requiere F1; F3 requiere F2; F4 requiere F3; F5 requiere F3+F4; F6 puede paralelizar con F4–F5; F8 paralela desde F2.
 
 **Total estimado:** 17–22 semanas-persona (4.5–5.5 meses con 1 dev; 2.5–3 meses con 2 devs).
 
 Esta metodología **no es opcional**. Saltarse fases o implementar sin spec genera deuda técnica no recuperable.
 
-### 10. Stack Tecnológico Constitucional
+---
 
-#### 10.1 Frontend — Stack Base Obligatorio
+## 9. Stack Tecnológico Constitucional
+
+### 9.1 Frontend — Stack Base Obligatorio
 
 La plataforma web (PWA) deberá construirse **obligatoriamente** sobre el siguiente stack base:
 
@@ -228,19 +222,18 @@ La plataforma web (PWA) deberá construirse **obligatoriamente** sobre el siguie
 - **vite-plugin-pwa + Workbox** para service worker y estrategias de caché
 - Arquitectura vertical slice (feature-based)
 
-#### 10.2 Backend y Base de Datos — Stack Base Obligatorio
+### 9.2 Backend y Base de Datos — Stack Base Obligatorio
 
 La capa de datos y lógica de negocio deberá implementarse **obligatoriamente** sobre:
 
 - **Supabase** (PostgreSQL + RLS + Realtime + Storage + Edge Functions + Auth)
 - **PostgreSQL** con schema `public` para datos y schema `app` para helpers `security definer`
-- **Supabase Edge Functions** (Deno) para lógica de negocio sensible: grading, generación de certificados,
-  tutor IA, actualización de roles
+- **Supabase Edge Functions** (Deno) para lógica de negocio sensible: grading, generación de certificados, tutor IA, actualización de roles
 - **Row Level Security en todas las tablas** — no existe tabla sin RLS
 
 El backend **no expone** service role key, Gemini API key ni Resend API key al cliente en ninguna circunstancia.
 
-#### 10.3 Infraestructura — Stack Base Obligatorio
+### 9.3 Infraestructura — Stack Base Obligatorio
 
 - **Vercel Pro** como plataforma de hosting (Hobby prohíbe uso comercial)
 - **pnpm** como package manager
@@ -249,10 +242,11 @@ El backend **no expone** service role key, Gemini API key ni Resend API key al c
 - **Resend + React Email** para emails transaccionales
 - **Google Gemini 2.5 Flash** (SDK `@google/genai v1+`) para IA — solo en Edge Functions
 
-### 11. Estándar Constitucional de Documentación de Código
+---
 
-Todo código generado para el proyecto, ya sea por humanos o por agentes de IA, deberá cumplir
-**obligatoriamente** con el siguiente estándar:
+## 10. Estándar Constitucional de Documentación de Código
+
+Todo código generado para el proyecto, ya sea por humanos o por agentes de IA, deberá cumplir **obligatoriamente** con el siguiente estándar:
 
 - Comentarios con el prefijo **`🎓LMS:`**
 - Utilizar emojis al inicio de los comentarios:
@@ -270,7 +264,7 @@ Todo código generado para el proyecto, ya sea por humanos o por agentes de IA, 
   - Motores de progreso y grading
   - Integraciones con Gemini y plataformas externas
 
-#### Ejemplo Constitucional
+### Ejemplo Constitucional
 
 ```ts
 //🎓LMS: Saves lesson progress with debounce to avoid excessive DB writes (EN)
@@ -282,14 +276,16 @@ export function useProgressStore() { ... }
 
 La ausencia de este estándar en lógica crítica **bloquea el cierre de tickets**.
 
-### 12. Integraciones de Contenido Externo
+---
 
-#### 12.1 Plataformas Obligatorias (v1.0)
+## 11. Integraciones de Contenido Externo
+
+### 11.1 Plataformas Obligatorias (v1.0)
 
 La plataforma deberá ser funcional con los siguientes proveedores de contenido:
 
 | Proveedor | Tipo | Acceso Instructor |
-| --- | --- | --- |
+|---|---|---|
 | **YouTube** | Video | [YouTube Studio](https://studio.youtube.com) — visibilidad *No listado* |
 | **Vimeo** | Video (sin ads, privacidad real) | [Vimeo Upload](https://vimeo.com/upload) |
 | **Google Drive** | PDF embed | [Google Drive](https://drive.google.com) — compartir "Cualquiera con el enlace" |
@@ -297,17 +293,16 @@ La plataforma deberá ser funcional con los siguientes proveedores de contenido:
 | **OneDrive / SharePoint** | PPTX nativo | [OneDrive](https://onedrive.live.com) — Insertar > Copiar iframe |
 | **Notion** | Notas web | [Notion](https://www.notion.so) — Share > Publish to web (`notion.site`) |
 
-#### 12.2 Principio de Integración — Manual y Sin OAuth
+### 11.2 Principio de Integración — Manual y Sin OAuth
 
-**El sistema NO integra OAuth con ninguna plataforma de contenido.** El instructor pega la URL directamente.
-El sistema detecta el proveedor por regex y construye la URL de embed. Este principio garantiza:
+**El sistema NO integra OAuth con ninguna plataforma de contenido.** El instructor pega la URL directamente. El sistema detecta el proveedor por regex y construye la URL de embed. Este principio garantiza:
 
 - Cero dependencia de tokens OAuth que expiren
 - Cero costo de APIs de terceros
 - Cero setup de credenciales de plataformas externas
 - Funcionamiento inmediato para cualquier instructor
 
-#### 12.3 Arquitectura Estándar de Proveedores
+### 11.3 Arquitectura Estándar de Proveedores
 
 El sistema implementa una abstracción en `content_sources` que permite:
 
@@ -318,20 +313,22 @@ El sistema implementa una abstracción en `content_sources` que permite:
 
 La lógica de progreso **no puede acoplarse a un proveedor específico**.
 
-### 13. Gobierno Constitucional de Agentes de IA
+---
 
-#### 13.1 Naturaleza de los Agentes
+## 12. Gobierno Constitucional de Agentes de IA
 
-Los agentes (**Picoro, Goku, Vegeta, Krilin, Bulma**) son **roles documentados**, no entidades autónomas
-sin control.
+### 12.1 Naturaleza de los Agentes
+
+Los agentes (**Picoro, Goku, Vegeta, Krilin, Bulma**) son **roles documentados**, no entidades autónomas sin control.
 
 Los agentes:
-
 - No toman decisiones fuera de su rol
 - No ejecutan trabajo sin trazabilidad
 - No sustituyen la aprobación humana del responsable del proyecto
 
-#### 13.2 Reglas Obligatorias para Todo Agente
+---
+
+### 12.2 Reglas Obligatorias para Todo Agente
 
 Todo agente de IA que participe en el desarrollo:
 
@@ -344,16 +341,18 @@ Todo agente de IA que participe en el desarrollo:
 
 La ausencia de cualquiera de estos elementos **bloquea el avance del trabajo**.
 
-#### 13.3 Orden Operativo Constitucional Obligatorio
+---
+
+### 12.3 Orden Operativo Constitucional Obligatorio
 
 El flujo operativo de agentes es **obligatorio e inmutable**:
 
-```text
+```
 Picoro → (Goku ∥ Krilin) → (Vegeta ∥ Bulma) → Aprobación
 ```
 
 | Agente | Rol en este proyecto |
-| --- | --- |
+|---|---|
 | **Picoro** | Análisis, investigación, diseño de features, redacción de specs y migrations SQL |
 | **Goku** | Implementación frontend (React, Zustand, hooks, visores de contenido) |
 | **Vegeta** | Optimización, seguridad (RLS, CSP, Edge Functions, bundle size) |
@@ -364,7 +363,6 @@ Picoro → (Goku ∥ Krilin) → (Vegeta ∥ Bulma) → Aprobación
 Violaciones a este flujo **bloquean el avance del trabajo**.
 
 Cualquier violación a:
-
 - El orden de agentes
 - Las reglas de visibilidad
 - La falta de evidencia o comentarios estándar
@@ -375,7 +373,9 @@ resulta en:
 - ❌ No cierre de tickets
 - ❌ No avance de fase
 
-#### 13.4 Independencia de Frameworks
+---
+
+### 12.4 Independencia de Frameworks
 
 Los agentes definidos en esta Constitución:
 
@@ -385,7 +385,9 @@ Los agentes definidos en esta Constitución:
 
 SpecKit **no reemplaza** este gobierno; **se subordina a él**.
 
-### 14. Seguridad — Principios No Negociables
+---
+
+## 13. Seguridad — Principios No Negociables
 
 Los siguientes principios de seguridad son **constitucionales e inmutables**:
 
@@ -400,22 +402,22 @@ Los siguientes principios de seguridad son **constitucionales e inmutables**:
 9. **Certificados verificables por RPC público** `verify_certificate(code)` — nunca expone el registro completo.
 10. **PITR activado en Supabase Pro** + backup nightly `pg_dump` a S3/R2 encriptado.
 
-### 15. Escalabilidad del Ecosistema
+---
 
-Los principios de esta Constitución aplican a **todas las aplicaciones del ecosistema educativo**, incluyendo
-futuras expansiones como:
+## 14. Escalabilidad del Ecosistema
+
+Los principios de esta Constitución aplican a **todas las aplicaciones del ecosistema educativo**, incluyendo futuras expansiones como:
 
 - LMS empresariales (mismo stack, distintos planes/tenants)
 - Plataformas de certificación profesional
 - Sistemas con IA Copilot pedagógica integrada
 - Aplicaciones PWA + Supabase futuras del framework AI Skill Development
 
-Esto garantiza reutilización de agentes, skills y gobierno; consistencia técnica entre proyectos; y
-escalabilidad organizacional.
+Esto garantiza reutilización de agentes, skills y gobierno; consistencia técnica entre proyectos; y escalabilidad organizacional.
 
-## Development Workflow
+---
 
-### 16. Evolución y Enmiendas
+## 15. Evolución y Enmiendas
 
 La plataforma está diseñada para evolucionar hacia:
 
@@ -435,23 +437,22 @@ Cualquier cambio que:
 
 requiere **enmienda constitucional explícita y documentada**.
 
-### 17. Declaración Final
+---
+
+## 16. Declaración Final
 
 Esta Constitución define **qué es y qué no es** la plataforma LMS escolar.
 
 Toda SPEC, ticket, agente, skill o línea de código deberá:
 
-Respetar, reflejar y reforzar esta Constitución
+**Respetar, reflejar y reforzar esta Constitución**
 
 El aprendizaje es un proceso humano. La plataforma es su andamio — no su sustituto.
 
-## Governance
+---
 
-La Constitución supersede cualquier otra guía, SPEC, ticket, agente o implementación. Cualquier
-desviación requiere enmienda explícita, documentada y trazable.
-
-La revisión de cumplimiento es obligatoria antes de cerrar tickets, fases o cambios constitucionales.
-
-El blueprint técnico de referencia sigue siendo `Investigacion.md`.
-
-**Version**: 1.0 | **Ratified**: TODO(RATIFICATION_DATE): no aparece en .drfic/diana-sdk/memory/project_constitution.md | **Last Amended**: 2026-04-23
+**Estado**: ✅ Activa  
+**Versión**: 1.0  
+**Rol**: Fuente de verdad primaria del proyecto LMS  
+**Framework**: Spec-Driven Development (SpecKit / OpenSpec)  
+**Blueprint técnico de referencia**: `Investigacion.md`
