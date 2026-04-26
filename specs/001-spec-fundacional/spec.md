@@ -1,3 +1,116 @@
+﻿# Feature Specification: SPEC-001 Fundacional LMS Escolar
+
+**Feature Branch**: [hook-not-available]  
+**Created**: 2026-04-25  
+**Status**: Draft  
+**Input**: User description: "Canonizar SPEC-001 fundacional desde .drfic/diana-sdk/specs/001-spec-drfic.md sin inferencias"
+
+## User Scenarios & Testing *(mandatory)*
+
+### User Story 1 - Trayectoria de aprendizaje trazable (Priority: P1)
+
+Diseñar, construir y operar una plataforma educativa LMS tipo PWA para instituciones escolares que organice cursos, modulos y lecciones, y permita progreso trazable respetando prerequisitos configurados.
+
+**Why this priority**: Es el objetivo principal del sistema y habilita el valor academico base para alumnos e instructores.
+
+**Independent Test**: Se valida al verificar que un alumno puede inscribirse, avanzar por contenido permitido y quedar bloqueado cuando no cumple prerequisitos.
+
+**Acceptance Scenarios**:
+
+1. **Given** un alumno autenticado con prerequisitos cumplidos, **When** intenta avanzar al siguiente contenido, **Then** el sistema permite progreso y registra trazabilidad.
+2. **Given** un alumno sin prerequisitos cumplidos, **When** intenta acceder a contenido bloqueado, **Then** el sistema niega acceso.
+
+---
+
+### User Story 2 - Gestion docente de contenido (Priority: P2)
+
+Permitir a instructores crear, publicar y gestionar contenido de cursos con cuatro tipos soportados: video, PDF, PPTX y notas web.
+
+**Why this priority**: La creacion y mantenimiento de contenido es necesaria para que exista oferta formativa en la plataforma.
+
+**Independent Test**: Se valida al crear y publicar contenido en los cuatro tipos declarados y consumirlo desde la experiencia del alumno.
+
+**Acceptance Scenarios**:
+
+1. **Given** un instructor autorizado, **When** crea y publica lecciones en los tipos soportados, **Then** quedan disponibles segun permisos y prerequisitos.
+
+---
+
+### User Story 3 - Integridad de evaluacion y certificacion (Priority: P3)
+
+Proteger la integridad de evaluaciones con grading exclusivamente del lado servidor y emitir certificados o diplomas verificables publicamente con codigo unico.
+
+**Why this priority**: Asegura confianza academica y validez institucional de resultados.
+
+**Independent Test**: Se valida al completar una evaluacion con calificacion segura y comprobar verificacion publica del certificado.
+
+**Acceptance Scenarios**:
+
+1. **Given** un intento de evaluacion activo, **When** se procesa la calificacion, **Then** el grading ocurre solo en servidor y datos sensibles no llegan al cliente.
+2. **Given** un certificado emitido, **When** se consulta su codigo publico, **Then** se verifica su validez sin exponer datos restringidos.
+
+---
+
+### Edge Cases
+
+- Intento de acceso a contenido sin cumplir prerequisitos.
+- Intento de autoasignacion o elevacion de rol no permitida.
+- Intento de uso de IA durante evaluacion activa (kill-switch obligatorio).
+- Deteccion de ciclo al configurar prerequisitos de cursos.
+- Consulta publica de certificado con codigo invalido o inexistente.
+
+## Requirements *(mandatory)*
+
+### Functional Requirements
+
+- **FR-001**: El sistema MUST organizar conocimiento en jerarquia institucional y academica (cursos, modulos, lecciones).
+- **FR-002**: El sistema MUST permitir a instructores crear, publicar y gestionar contenido en tipos video, PDF, PPTX y nota web.
+- **FR-003**: El sistema MUST aplicar prerequisitos para acceso y progresion de cursos.
+- **FR-004**: El sistema MUST impedir promocion automatica sin superar evaluaciones configuradas.
+- **FR-005**: El sistema MUST realizar grading exclusivamente del lado servidor.
+- **FR-006**: El sistema MUST impedir exposicion al cliente de datos de correccion de respuestas.
+- **FR-007**: El sistema MUST emitir certificados y diplomas verificables publicamente con codigo unico.
+- **FR-008**: El sistema MUST integrar tutor IA en modo socratico y no como evaluador.
+- **FR-009**: El sistema MUST aplicar kill-switch de IA durante evaluaciones activas.
+- **FR-010**: El sistema MUST mantener control humano explicito en evaluacion y avance de fase.
+- **FR-011**: El sistema MUST aplicar control de acceso por roles jerarquicos.
+- **FR-012**: El sistema MUST garantizar funcionamiento como PWA instalable con modo offline basico.
+- **FR-013**: El sistema MUST operar con enfoque de costo cercano a cero para volumen inicial declarado.
+- **FR-014**: El sistema MUST mantener trazabilidad de progreso del alumno.
+
+### Key Entities *(include if feature involves data)*
+
+- **Usuario/Perfil**: Identidad del actor y rol jerarquico dentro del sistema.
+- **Unidad Organizativa**: Contexto institucional para scopes administrativos.
+- **Curso/Modulo/Leccion**: Estructura principal del contenido educativo.
+- **Inscripcion/Progreso**: Estado de avance academico por alumno.
+- **Evaluacion/Intento/Opciones**: Dominio de evaluacion y calificacion segura.
+- **Badge/Trofeo/Certificado/Diploma**: Dominio de gamificacion y acreditacion.
+- **Conversacion IA**: Historial y contexto del tutor socratico.
+- **Notificacion/Flag de moderacion**: Eventos y control operativo.
+
+## Success Criteria *(mandatory)*
+
+### Measurable Outcomes
+
+- **SC-001**: La plataforma cubre un volumen inicial operativo de 50 a 100 usuarios.
+- **SC-002**: La experiencia PWA garantiza instalacion y modo offline basico para shell, catalogo y lecciones visitadas.
+- **SC-003**: El costo operativo mensual del escenario inicial se mantiene cercano a cero para los componentes no IA.
+- **SC-004**: El grading de evaluaciones ocurre en servidor en el 100% de intentos procesados.
+- **SC-005**: El control de IA durante evaluaciones activas se bloquea en el 100% de intentos activos.
+- **SC-006**: En cada PR de calidad final, PWA alcanza 100 y performance >= 90 en Lighthouse.
+
+## Assumptions
+
+- Esta especificacion es fundacional (SPEC-001) y de nivel Sistema/Vision.
+- El documento project_constitution.md prevalece ante cualquier conflicto.
+- Quedan fuera de alcance v1 los elementos marcados como diferidos (v2/v3).
+- Se mantiene control humano explicito para cierre de fases por Dr. Gabo.
+
+## Canonical Source (Verbatim)
+
+El contenido siguiente se registra como definicion canonica inicial sin alteracion de sentido:
+
 # SPEC-001-TKT-LMS-001 — PLATAFORMA LMS ESCOLAR PWA ASISTIDA POR IA
 
 Framework: Spec-Driven Development (GitHub Copilot Spec-Kit)
@@ -483,3 +596,4 @@ Este documento:
 **Constitución de referencia:** `project_constitution.md`
 **Blueprint técnico de referencia:** `Investigacion.md`
 **Aprobación humana:** Dr. Gabo
+
