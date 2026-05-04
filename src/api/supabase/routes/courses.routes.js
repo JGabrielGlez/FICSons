@@ -8,4 +8,13 @@ const router = Router();
 router.get('/', CourseController.getAll);
 router.get('/:id', CourseController.getById);
 
+// Rutas de Instructor (Requieren Bearer Token)
+router.post('/instructor/courses', CourseController.create);
+router.put('/instructor/courses/:id', CourseController.update);
+router.delete('/instructor/courses/:id', CourseController.remove);
+
+// Gestión de Equipo
+router.get('/instructor/courses/:id/team', CourseController.getTeam);
+router.post('/instructor/courses/:id/team', CourseController.addMember);
+
 export default router;
