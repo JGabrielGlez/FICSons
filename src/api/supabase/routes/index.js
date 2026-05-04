@@ -2,6 +2,7 @@ import { Router } from "express";
 import config from "../../../config/config";
 import institutosRoutes from "./institutos.routes";
 import coursesRoutes from "./courses.routes"; 
+import enrollmentRoutes from "../../app-core/routes/enrollment.routes.js";
 
 const routeApi = (app) => {
   const router = Router();
@@ -10,6 +11,7 @@ const routeApi = (app) => {
 
   router.use('/institutos', institutosRoutes);
   router.use('/courses', coursesRoutes); // 
+  router.use('/', enrollmentRoutes);
 };
 
 export default routeApi; // 
