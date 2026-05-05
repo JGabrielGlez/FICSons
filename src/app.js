@@ -5,6 +5,7 @@ import config from "./config/config";
 import { supabase } from "./config/database.config.js";
 import routeAPI from "./api/supabase/routes/index.js";
 import routerAppCore from "./api/app-core/routes/index.js";
+import routerAiChat from "./api/ai-chat/routes/index.js";
 
 // Se declara la variable app igualándola a express
 const app = express();
@@ -32,5 +33,8 @@ routeAPI(app);
 
 // Módulo app-core (evaluaciones y demás módulos del LMS)
 routerAppCore(app);
+
+// Módulo ai-chat (chat con IA Ada - Persona 1)
+routerAiChat(app);
 
 export default app;

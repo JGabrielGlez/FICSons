@@ -1,5 +1,5 @@
 import boom from "@hapi/boom";
-import { supabase } from "../../config/database.config.js";
+import { supabase } from "../../../config/database.config.js";
 import { Evaluation, EvaluationQuestion, EvaluationOption, EvaluationAttempt } from "../models/Evaluation.js";
 
 // Crea una evaluación completa: cabecera + preguntas + opciones
