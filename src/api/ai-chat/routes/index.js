@@ -6,4 +6,5 @@ export default function routerAiChat(app) {
   app.use("/api/ai-chat", chatRouter);
     app.use("/api/ai",conversationsRouter);
 
+  app.use("/api/ai-chat", conversationsRouter);
 }
