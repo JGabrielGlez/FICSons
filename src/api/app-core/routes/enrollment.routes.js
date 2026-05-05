@@ -9,8 +9,7 @@ router.get('/enrollments', authenticateJWT, EnrollmentController.getMyEnrollment
 router.post('/enrollments', authenticateJWT, EnrollmentController.requestEnrollment)
 router.delete('/enrollments/:id', authenticateJWT, EnrollmentController.cancelEnrollment)
 
-// Esta ruta está en /api/courses/:id/can-enroll — puede que viva en otro router
-// Consulta con tu equipo si el router de courses la monta o si la montas tú
+//ruta ejemplo, ya que se desarrollará en otro microservicio
 router.get('/courses/:id/can-enroll', authenticateJWT, EnrollmentController.canEnroll)
 
 export default router

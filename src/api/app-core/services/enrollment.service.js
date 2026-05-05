@@ -1,4 +1,4 @@
-import * as queries from '../queries/enrollment.queries.js';
+import * as queries from "../queries/enrollment.queries.js";
 
 export async function checkPrerequisites(userId, courseId) {
   const prereqs = await queries.getCoursePrerequisites(courseId);
@@ -9,7 +9,10 @@ export async function checkPrerequisites(userId, courseId) {
   const missing = [];
 
   for (const p of prereqs) {
-    const prereqCourseId = p.prerequisite_course_id || p.prerequisite_course || p.prerequisite_course_id;
+    const prereqCourseId =
+      p.prerequisite_course_id ||
+      p.prerequisite_course ||
+      p.prerequisite_course_id;
     const minScore = p.min_score != null ? Number(p.min_score) : 0;
 
     // get evaluation ids for the prereq course
@@ -24,7 +27,7 @@ export async function checkPrerequisites(userId, courseId) {
     const attempts = await queries.getAttemptsForEvaluations(userId, evalIds);
     const passed = attempts.some((a) => {
       if (!a) return false;
-      if (a.status === 'passed') return true;
+      if (a.status === "passed") return true;
       if (a.score != null && Number(a.score) >= minScore) return true;
       return false;
     });
@@ -38,23 +41,26 @@ export async function checkPrerequisites(userId, courseId) {
 export async function requestEnrollment(userId, courseId) {
   const course = await queries.getCourseById(courseId);
   if (!course) {
-    const err = new Error('Course not found');
+    const err = new Error("Course not found");
     err.status = 404;
     throw err;
   }
 
   const prereqCheck = await checkPrerequisites(userId, courseId);
   if (!prereqCheck.allowed) {
-    return { enrollment_status: 'blocked', missing_prerequisites: prereqCheck.missing };
+    return {
+      enrollment_status: "blocked",
+      missing_prerequisites: prereqCheck.missing,
+    };
   }
 
   const existing = await queries.queryExistingEnrollment(userId, courseId);
   if (existing) {
-    return { enrollment_status: 'enrolled', missing_prerequisites: [] };
+    return { enrollment_status: "enrolled", missing_prerequisites: [] };
   }
 
   await queries.insertEnrollment(userId, courseId);
-  return { enrollment_status: 'enrolled', missing_prerequisites: [] };
+  return { enrollment_status: "enrolled", missing_prerequisites: [] };
 }
 
 export async function getMyEnrollments(userId) {
@@ -65,12 +71,16 @@ export async function getMyEnrollments(userId) {
     status: r.status,
     enrolled_at: r.enrolled_at,
     completed_at: r.completed_at,
-    progress_pct: null
+    progress_pct: null,
   }));
 }
 
 export async function dropEnrollment(enrollmentId, userId) {
-  const updated = await queries.updateEnrollmentStatus(enrollmentId, userId, 'dropped');
+  const updated = await queries.updateEnrollmentStatus(
+    enrollmentId,
+    userId,
+    "dropped",
+  );
   // If updated is null, no row matched (not found or not user's)
   return updated ? true : false;
 }
