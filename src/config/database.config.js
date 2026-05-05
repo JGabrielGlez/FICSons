@@ -1,9 +1,15 @@
 import config from "./config";
+import dotenv from "dotenv";
 
 // Initialize the JS client
 import { createClient } from "@supabase/supabase-js";
 
-export const supabase = createClient(config.SUPABASE_URL, config.SUPABASE_KEY);
+dotenv.config();
+
+const supabaseUrl = process.env.SUPABASE_URL || config.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY || config.SUPABASE_KEY;
+
+export const supabase = createClient(supabaseUrl, supabaseKey);
 
 (async () => {
   try {
