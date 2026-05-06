@@ -1,0 +1,18 @@
+{
+  "name": "@app-rest-security/core",
+  "version": "1.0.0",
+  "description": "Core module: shared DB client, models, and utilities for AppRESTeSecurity",
+  "private": true,
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./db": "./shared/db.js",
+    "./models": "./shared/models/index.js",
+    "./models/instituto": "./shared/models/instituto.model.js"
+  },
+  "files": [
+    "shared/",
+    "index.js",
+    "README.md"
+  ]
+}

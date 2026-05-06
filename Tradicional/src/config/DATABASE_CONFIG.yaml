@@ -1,0 +1,6 @@
+database:
+  client: supabase
+  url: ${DATABASE_URL}
+  name: ${DATABASE}
+
+# Plantilla sencilla de configuración de base de datos
