@@ -15,7 +15,7 @@ export function toResponse(err: ApiError) {
   return {
     status: err.status || 500,
     body: {
-      code: err.code || 'internal_error',
+      code: err.code || "internal_error",
       message: err.message,
       details: err.details || null,
     },

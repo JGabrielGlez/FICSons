@@ -1,7 +1,8 @@
 // Placeholder test for submit-evaluation mirror
-import { gradeAttempt } from '../src/services/grading';
+import { test, expect } from 'vitest';
+import { gradeAttempt } from "../src/services/grading";
 
-test('grading stub', () => {
+test("grading stub", () => {
   const r = gradeAttempt([]);
-  expect(r).toHaveProperty('score');
+  expect(r).toHaveProperty("score");
 });
