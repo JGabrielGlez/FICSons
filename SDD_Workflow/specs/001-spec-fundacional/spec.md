@@ -5,7 +5,6 @@
 **Status**: Draft  
 **Input**: User description: "Canonizar SPEC-001 fundacional desde .drfic/diana-sdk/specs/001-spec-drfic.md sin inferencias"
 
-<<<<<<< HEAD
 ## Clarifications
 
 ### Session 2026-04-26
@@ -16,8 +15,6 @@
 - Q: Retencion de logs y metricas operativas en v1 → A: 90 dias
 - Q: Marco regulatorio formal aplicable en v1 → A: Sin marco regulatorio especifico en v1; aplicar buenas practicas de seguridad y privacidad definidas
 
-=======
->>>>>>> origin/main
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Trayectoria de aprendizaje trazable (Priority: P1)
@@ -71,10 +68,7 @@ Proteger la integridad de evaluaciones con grading exclusivamente del lado servi
 - Intento de uso de IA durante evaluacion activa (kill-switch obligatorio).
 - Deteccion de ciclo al configurar prerequisitos de cursos.
 - Consulta publica de certificado con codigo invalido o inexistente.
-<<<<<<< HEAD
 - Conflicto de edicion concurrente: se rechaza guardado y se solicita recarga antes de reintentar.
-=======
->>>>>>> origin/main
 
 ## Requirements *(mandatory)*
 
@@ -116,12 +110,9 @@ Proteger la integridad de evaluaciones con grading exclusivamente del lado servi
 - **SC-004**: El grading de evaluaciones ocurre en servidor en el 100% de intentos procesados.
 - **SC-005**: El control de IA durante evaluaciones activas se bloquea en el 100% de intentos activos.
 - **SC-006**: En cada PR de calidad final, PWA alcanza 100 y performance >= 90 en Lighthouse.
-<<<<<<< HEAD
 - **SC-007**: La disponibilidad objetivo mensual del sistema en v1 es 99.0%.
 - **SC-008**: Recuperacion ante incidentes en v1 con RTO de 8 horas y RPO de 24 horas.
 - **SC-009**: Retencion de logs y metricas operativas por 90 dias en v1.
-=======
->>>>>>> origin/main
 
 ## Assumptions
 
@@ -129,10 +120,7 @@ Proteger la integridad de evaluaciones con grading exclusivamente del lado servi
 - El documento project_constitution.md prevalece ante cualquier conflicto.
 - Quedan fuera de alcance v1 los elementos marcados como diferidos (v2/v3).
 - Se mantiene control humano explicito para cierre de fases por Dr. Gabo.
-<<<<<<< HEAD
 - En v1 no se fija un marco regulatorio formal especifico; se aplican las buenas practicas de seguridad y privacidad ya definidas en esta especificacion.
-=======
->>>>>>> origin/main
 
 ## Canonical Source (Verbatim)
 
